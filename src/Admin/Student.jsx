@@ -11,7 +11,8 @@ const Student = () => {
         const getAllCourse = async () => {
         try {
             const userRes = await makeAuthenticatedGETRequest(token,endPoint.GET_ALL_USERS);
-            setUser(userRes.data.user)
+            const gotuser = userRes.data.user.filter((item) => item.isAdmin === false)
+            setUser(gotuser)
         } catch (error) {
             console.log(error);       
         }
@@ -26,7 +27,11 @@ const Student = () => {
                try {
                 const res = await makeAuthenticatedGETRequest(token , `http://localhost:4000/admin/search/${search}`);
                 console.log(res)
-                if(res.status === 200) {setSearchResult(res.data);  setIsLoading(true)}
+                if(res.status === 200) {
+                    const searchgot = res.data.filter((item) => item.isAdmin === false);
+                    setSearchResult(searchgot);  
+                    setIsLoading(true)
+                }
                
                } catch (error) {
                 console.log("data not found");

@@ -27,11 +27,6 @@ const Router = () => {
             <Route path="/courses/:id" element={<CourseDetails/>}/>
             <Route path="/profile" element={ isLogin === null  ? <Login/> : <Profile/> }/>
             <Route path="*" element={<ErrorPage/>}/>
-
-            
-
-
-
             <Route path="/admin" element={
               <ProtectedRoute>
               <Dashboard/>

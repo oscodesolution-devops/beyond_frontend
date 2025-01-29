@@ -22,7 +22,9 @@ const adminDashboard = () => {
             if(total.status === 200){
                 setAmount(total.data.map(item => item.courseId.price).reduce((total, amount) => total + parseInt(amount), 0))
             }
-            setUser(userRes.data.user)
+            const gotuser = userRes.data.user.filter((item) => item.isAdmin === false)
+            setUser(gotuser)
+            // setUser(userRes.data.user)
             setPurchase(purchaseRes.data.user)
             if(response.status === 200){
                 setData(response.data.course)
@@ -85,7 +87,7 @@ console.log(oldData);
   return (
      <>
      <div className="h-screen flex-grow-1 overflow-y-lg-auto">
-        <header className="bg-surface-primary   border-bottom pt-6">
+        {/* <header className="bg-surface-primary   border-bottom pt-6">
             <div className="container-fluid">
                 <div className="mb-npx">
                    
@@ -102,7 +104,7 @@ console.log(oldData);
                     </ul>
                 </div>
             </div>
-        </header>
+        </header> */}
         <main className="py-6 bg-surface-secondary">
             <div className="container-fluid">
                 <div className="row g-6 mb-6">
@@ -200,14 +202,14 @@ console.log(oldData);
                     </div>
                 </div>
                 
-                <div className='w-[100%] flex xl:flex-row sm:flex-col flex-col   gap-4'>
+                <div className='w-[100%] flex md:flex-wrap gap-4'>
                    <div className=" bg-white border border-gray-200 h-[47vh] rounded-lg shadow w-[450px] dark:bg-gray-800 dark:border-gray-700">
                         <Chart data = {datass} />
                         <div className="p-5">
                             <a href="#">
                                 <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Monthly Sales</h5>
                             </a>
-                            <p className="mb-3 font-normal text-gray-700 text-[15px] dark:text-gray-400">6 Months Groth</p>
+                            <p className="mb-3 font-normal text-gray-700 text-[15px] dark:text-gray-400">6 Months Growth</p>
                     </div>
                 </div>
                    <div className=" bg-white border border-gray-200 h-[47vh] rounded-lg shadow w-[450px] dark:bg-gray-800 dark:border-gray-700">
@@ -225,7 +227,7 @@ console.log(oldData);
                             <a >
                                 <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Monthly Student  Enrolled</h5>
                             </a>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">6 Months Student Groth</p>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">6 Months Student Growth</p>
                         </div>
                    </div>
                 </div>

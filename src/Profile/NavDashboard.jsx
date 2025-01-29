@@ -1,31 +1,10 @@
-import {useEffect, useState} from 'react'
 
 const NavDashboard = ({ course , data }) => {
 
 
-
-const len = 1;
   return (
     <>
      <div className="h-screen flex-grow-1 overflow-y-lg-auto">
-        <header className="bg-surface-primary border-bottom pt-6">
-            <div className="container-fluid">
-                <div className="mb-npx">
-                   
-                    <ul className="nav nav-tabs mt-4 overflow-x border-0">
-                        <li className="nav-item ">
-                            <a href="#" className="nav-link active">All files</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#" className="nav-link font-regular">Shared</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#" className="nav-link font-regular">File requests</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </header>
         <main className="py-6 bg-surface-secondary">
             <div className="container-fluid">
                 <div className="row g-6 mb-6">
@@ -35,7 +14,7 @@ const len = 1;
                                 <div className="row">
                                     <div className="col">
                                         <span className="h6 font-semibold text-muted text-sm d-block mb-2">Enrolled Course</span>
-                                        <span className="h3 font-bold mb-0">{len}</span>
+                                        <span className="h3 font-bold mb-0"></span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -81,7 +60,7 @@ const len = 1;
                                 <div className="row">
                                     <div className="col">
                                         <span className="h6 font-semibold text-muted text-sm d-block mb-2">Purchase History</span>
-                                        <span className="h3 font-bold mb-0">{len}</span>
+                                        <span className="h3 font-bold mb-0"></span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-info text-white text-lg rounded-circle">

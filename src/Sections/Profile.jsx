@@ -69,9 +69,9 @@ useEffect(() => {
         <div className="container-fluid ">
         <div>
             <ul className="navbar-nav">
-              <div className="cursor-pointer text-[#fff]  font-sans font-semibold xl:text-[30px] text-[25px] px-4 py-1 flex flex-wrap items-center gap-6">
-                  <span className="text-black -mb-4">Walcome </span><br/>
-                  <span className="text-theme-200 -mr-5">{userData.name} </span>
+              <div className="cursor-pointer text-[#fff]  font-sans font-bold xl:text-[30px] text-[25px] px-4 py-1 flex flex-wrap items-center gap-6">
+                  <span className="text-black ">Welcome</span>
+                  <span className="text-theme-200 ">{userData?.name} </span>
         </div>
         <Link to={"/"} className="nav-item">
                         <a className="nav-link" href="#">
@@ -90,8 +90,8 @@ useEffect(() => {
                     </li>
                     <li className="nav-item cursor-pointer" onClick={()=>setToggle(!toggle)}>
                         <a className="nav-link">
-                            <i className="bi bi-chat"></i> Live Classes
-                            <span className="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
+                            <i className="bi bi-chat"></i> Live Sessions
+                            {/* <span className="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span> */}
                         </a>
                     </li>
                     <li className="nav-item">
@@ -142,18 +142,23 @@ useEffect(() => {
     <div className="fixed inset-0 transition-opacity">
       <div className="absolute inset-0 bg-gray-900 opacity-75" />
     </div>
-    <span className="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-    <div className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-      <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+    <span className="hidden sm:inline-block sm:align-middle sm:h-screen ">&#8203;</span>
+    <div className="inline-block align-center  rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      {/* <div className=" px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
         <label className="font-medium text-gray-800">Name</label>
         <input type="text" className="w-full outline-none rounded bg-gray-100 p-2 mt-2 mb-3" />
         <label className="font-medium text-gray-800">Url</label>
         <input type="text" className="w-full outline-none rounded bg-gray-100 p-2 mt-2 mb-3" />
-      </div>
-      <div className="bg-gray-200 px-4 py-3 text-right">
+      </div> */}
+      <div className="mt-4 p-3 bg-gray-200 rounded">
+            <h3 className="font-semibold text-gray-800">Result:</h3>
+            <p><strong>Name:</strong> Ajay sir</p>
+            <p><strong>Url:</strong><span className='underline'>https:zoomcakl?/kjjasdklkl@ks/a</span></p>
+          </div>
+      {/* <div className=" px-4 py-3 text-right">
         <button type="button" className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" onClick={()=>setToggle(!toggle)}><i className="fas fa-times"></i> Cancel</button>
         <button type="button" className="py-2 px-4 bg-blue-500 text-white rounded font-medium hover:bg-blue-700 mr-2 transition duration-500"><i className="fas fa-plus"></i> Create</button>
-      </div>
+      </div> */}
     </div>
   </div>
 </div> 
