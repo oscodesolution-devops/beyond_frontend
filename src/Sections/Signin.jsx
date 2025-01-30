@@ -64,7 +64,7 @@ const navigate = useNavigate()
         <p className='text-[#544837] p-[18px] text-[20px]'>Lorem Ipsum Dolar Sit Amet Lorem Ipsum Dolar Sit Amet!</p>
     </div>
   </div>
-  <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+  <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center">
     <div className="w-full h-100 rounded-xl bg-[#CAF0F1] px-[44px] py-[18px]">
       <h1 className="text-xl md:text-2xl font-bold leading-tight mt-6 mb-6">Sign Up</h1>
