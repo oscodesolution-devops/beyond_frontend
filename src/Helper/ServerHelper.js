@@ -14,7 +14,7 @@ export const makeUnauthenticatedPOSTRequest = async (route, body) => {
     const data = {data:formattedResponse,status:status}
     return data;
   } catch (error) {
-    console.log(`error in fetch api `, error);
+    console.error(`error in fetch api `, error);
   }
 };
 
@@ -32,7 +32,7 @@ export const makeUnauthenticatedGETRequest = async (route) => {
     const data = {data:formattedResponse,status:status}
     return data;
   } catch (error) {
-    console.log(`error in fetch api `, error);
+    console.error(`error in fetch api `, error);
   }
 };
 
@@ -65,7 +65,7 @@ export const makeAuthenticatedPOSTRequest = async (token ,route,body) => {
     const data = {data:formattedResponse,status:status}
     return data;
   } catch (error) {
-    console.log(`error in fetch api `, error);
+    console.error(`error in fetch api `, error);
   }
 }
 
@@ -84,7 +84,7 @@ export const makeAuthenticatedPATCHRequest = async (token , route , body) => {
     const data = {data:formattedResponse,status:status}
     return data;
   } catch (error) {
-    console.log(`error in fetch api `, error);
+    console.error(`error in fetch api `, error);
   }
 }
 
@@ -103,26 +103,6 @@ export const makeAuthenticatedDELETERequest = async (token , route ) => {
     const data = {data:formattedResponse,status:status}
     return data;
   } catch (error) {
-    console.log(`error in fetch api `, error);
-  }
-}
-
-export const makeLiveClassLinkRequest = async (token , route , body) => {
-  try {
-    const response = await fetch(route, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(body),
-    });
-    const formattedResponse = await response.json();
-    const status = response.status;
-    const data = {data:formattedResponse,status:status}
-    return data;
-  }
-  catch(error){
-    console.log(`error in fetch api `, error);
+    console.error(`error in fetch api `, error);
   }
 }

@@ -98,14 +98,11 @@ const course = () => {
       })
       toast.success("Course Added Successfull")
     } catch (error) {
-      console.log("Error in Submission");
+      console.error("Error in Submission",error);
     }
         toast.dismiss(toastId);
 
   }
-console.log(inputFields.map((field) => field.value));
-console.log(week.map((field) => field.value));
-console.log(classDetail.map((field) => field.value));
   return (
      <>
  <div className="w-full h-[100vh] overflow-y-scroll">

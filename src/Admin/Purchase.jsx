@@ -21,14 +21,13 @@ const Purchase = () => {
             const response = await makeAuthenticatedGETRequest(token ,adminPoint.PURCHASE_DETAILS)
             setPayData(response.data)
         } catch (error) {
-            console.log(error);
+            console.error(error);
             
         }
     }
     useEffect(() => {
         getData();
     }, [])
-    console.log("23 ALL_PURCHASES =>",payData);
   return (
     <>
     <div className='w-screen'>

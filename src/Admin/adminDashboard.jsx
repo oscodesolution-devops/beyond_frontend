@@ -30,7 +30,7 @@ const adminDashboard = () => {
                 setData(response.data.course)
             }
         } catch (error) {
-            console.log(error);       
+            console.error(error);       
         }
     }
  const datass = [
@@ -83,7 +83,6 @@ const adminDashboard = () => {
     useEffect(() => {
       getAllCourse();
     }, [])
-console.log(oldData);
   return (
      <>
      <div className="h-screen flex-grow-1 overflow-y-lg-auto">

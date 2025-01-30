@@ -14,7 +14,7 @@ const Course = () => {
                 setData(response.data.course)
             }
         } catch (error) {
-            console.log(error);       
+            console.error(error);       
         }
     }
 

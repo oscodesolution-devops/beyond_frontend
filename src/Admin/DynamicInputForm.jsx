@@ -21,7 +21,6 @@ const DynamicInputForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Input Field Values:', inputFields.map((field) => field.value));
   };
 
   return (

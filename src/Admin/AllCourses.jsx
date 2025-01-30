@@ -20,7 +20,7 @@ const AllCourses = () => {
                 setData(response.data.course)
             }
         } catch (error) {
-            console.log(error);       
+            console.error(error);       
         }
     }
 const deleteCourse = async (id) => {
@@ -30,14 +30,14 @@ const deleteCourse = async (id) => {
     if(response.status === 201){
          window.location.reload();
     }
-    console.log("25",response);
-    
+    else{
+        console.error("Error in deleting course");
+    }    
 
 }
     useEffect(() => {
       getAllCourse();
     }, [])
-    console.log(data);
   return (
     <>
      <div className="w-screen h-auto px-[80px] py-[40px]">
@@ -73,11 +73,14 @@ const deleteCourse = async (id) => {
                         {/* <a className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-theme-200 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
                         <MdEdit /> 
                         </a> */}
-                        <a onClick={()=>deleteCourse(item._id)} className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-theme-200 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
+                        <a onClick={()=>deleteCourse(item._id)} className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-red-500 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
                         <FaTrash /> 
                         </a>
-                        <a className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-theme-200 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
-                            <Link to={`/courses/${item._id}`} >Explores</Link>
+                        <a className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-blue-600 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
+                            <Link to={`/courses/${item._id}`} >View</Link>
+                        </a>
+                        <a className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-green-700 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
+                            <Link to={`/courses/${item._id}`} >Edit</Link>
                         </a>
                         </div>
                         <div>

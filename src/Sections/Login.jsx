@@ -27,7 +27,6 @@ const Login = () => {
       const toastId = toast.loading("Loading...");
          try {
       const response = await makeUnauthenticatedPOSTRequest(endPoint.LOGIC_API,form);
-      console.log(response);
       dispatch(setToken(response.data.token))
 
       if(response.status === 201){
@@ -38,7 +37,7 @@ const Login = () => {
           toast.error("Invelide Data")
       }
     }catch (error) {
-          console.log(error);
+          console.error(error);
         }
         toast.dismiss(toastId);
    }

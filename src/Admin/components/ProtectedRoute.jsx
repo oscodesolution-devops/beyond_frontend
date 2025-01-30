@@ -26,8 +26,6 @@ const ProtectedRoute = ({ children }) => {
           }
         );
 
-        console.log("Admin Check Response:", response.data);
-
         if (response.data.isAdmin) {
           setIsAdmin(true);
         } else {

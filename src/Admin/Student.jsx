@@ -14,7 +14,7 @@ const Student = () => {
             const gotuser = userRes.data.user.filter((item) => item.isAdmin === false)
             setUser(gotuser)
         } catch (error) {
-            console.log(error);       
+            console.error(error);       
         }
     }
 
@@ -26,7 +26,6 @@ const Student = () => {
                e.preventDefault();
                try {
                 const res = await makeAuthenticatedGETRequest(token , `http://localhost:4000/admin/search/${search}`);
-                console.log(res)
                 if(res.status === 200) {
                     const searchgot = res.data.filter((item) => item.isAdmin === false);
                     setSearchResult(searchgot);  
@@ -34,9 +33,7 @@ const Student = () => {
                 }
                
                } catch (error) {
-                console.log("data not found");
-                toast.error("Data Not Found")
-                
+                console.error("data not found");                
                }
 
     }

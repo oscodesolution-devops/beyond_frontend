@@ -19,7 +19,7 @@ const [data,setData] = useState({})
       dispatch(setToken(res.data.token));   
 
     } catch (error) {
-        console.log("Error: "+ error);     
+        console.error("Error: "+ error);     
     }
 }
 Object?.keys(data)?.length > 0 ? dispatch(setSession()):dispatch(cleanSession());

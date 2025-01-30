@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { makeUnauthenticatedGETRequest, makeLiveClassLinkRequest } from '../Helper/ServerHelper'
+import { makeUnauthenticatedGETRequest,makeAuthenticatedPOSTRequest } from '../Helper/ServerHelper'
 import { endPoint, adminPoint } from '../Helper/Apis'
 
 
@@ -17,7 +17,7 @@ const Liveclass = () => {
         setCourse(response.data.course)
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -30,7 +30,7 @@ const Liveclass = () => {
     }
 
     try {
-      const response = await makeLiveClassLinkRequest(token,adminPoint.CREATE_LIVE_CLASS,{ "title":title, "link":link ,"courseId":selectedCourse });
+      const response = await makeAuthenticatedPOSTRequest(token,adminPoint.CREATE_LIVE_CLASS,{ "title":title, "link":link ,"courseId":selectedCourse });
       if (response.status === 201) {
         alert("Submitted")
       }
@@ -40,7 +40,7 @@ const Liveclass = () => {
     }
 
     setError('');
-    console.log('Submitted:', { title, link, selectedCourse });
+    console.error('Submitted:', { title, link, selectedCourse });
 
     // Clear the form
     setTitle('');
@@ -51,10 +51,6 @@ const Liveclass = () => {
     getAllCourse();
 
   }, [])
-  console.log("8888888888888888888888888888888", course);
-  console.log("title", title);
-  console.log("link", link);
-  console.log("selectedCourse", selectedCourse);
 
   return (
     <div className='container flex items-center justify-center h-screen w-full'>

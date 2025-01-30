@@ -12,8 +12,6 @@ const data = [
 ];
 const BarCharts = () => {
       const handleBarClick = (data, index) => {
-    // Handle the click event, you can perform actions based on the data or index
-    console.log('Bar Clicked:', data, index);
   };
   return (
    <div style={{ background: `linear-gradient(180deg, rgba(249,89,73,1) 0%, rgba(255,25,2,1) 100%)`, padding: '20px', borderRadius: '8px' }}>

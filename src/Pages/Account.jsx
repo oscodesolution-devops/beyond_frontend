@@ -29,16 +29,13 @@ const Account = ({user}) => {
             toast.success("Update Successfully Done")
           }else{
             toast.error("Can't Update")
-          }
-          console.log(response);
-      
+          }      
     } catch (error) {
-      console.log('Error', error);
+      console.error('Error', error);
       
     }
 
   }
-    console.log("<===>",_id);
 
   return (
     <>
