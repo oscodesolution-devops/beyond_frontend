@@ -36,7 +36,6 @@ export const makeUnauthenticatedGETRequest = async (route) => {
   }
 };
 
-
 export const makeAuthenticatedGETRequest = async (token , route) => {
   const response = await fetch(route , {
     method : 'GET' ,
@@ -88,8 +87,6 @@ export const makeAuthenticatedPATCHRequest = async (token , route , body) => {
   }
 }
 
-
-
 export const makeAuthenticatedDELETERequest = async (token , route ) => {
   try {
     const response = await fetch(route, {
@@ -97,6 +94,28 @@ export const makeAuthenticatedDELETERequest = async (token , route ) => {
       headers: {
         Authorization: `bearer ${token}`,
       },
+    });
+    const formattedResponse = await response.json();
+    const status = response.status;
+    const data = {data:formattedResponse,status:status}
+    return data;
+  } catch (error) {
+    console.error(`error in fetch api `, error);
+  }
+}
+export const makeAuthenticatedPOSTFILERequest = async (token , route, body ) => {
+  // for (let pair of body.entries()) {
+  //       console.log(pair[0], pair[1]);
+  //   }
+  console.log("fontend me body",body)
+  try {
+    const response = await fetch(route, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `bearer ${token}`,
+      },
+      body: JSON.stringify(body),
     });
     const formattedResponse = await response.json();
     const status = response.status;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeUnauthenticatedGETRequest,makeAuthenticatedPOSTRequest } from '../Helper/ServerHelper';
+import { makeUnauthenticatedGETRequest,makeAuthenticatedPOSTFILERequest } from '../Helper/ServerHelper';
 import { endPoint } from '../Helper/Apis';
 import {adminPoint} from '../Helper/Apis';
 const NotesUpload = () => {
@@ -40,12 +40,16 @@ const NotesUpload = () => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('pdfFile', file);
-    formData.append('title', title);
-    formData.append('course', selectedCourse);
+    // const formData = new FormData();
+    // formData.append('pdfFile', file);
+    // formData.append('title', "Xml notes");
+    // formData.append('course', "App development");
+  //   for (let pair of formData.entries()) {
+  //     console.log(pair[0], pair[1]);
+  // }
+  
     try {
-      const res = await makeAuthenticatedPOSTRequest(token,adminPoint.UPLOAD_NOTES,formData);
+      const res = await makeAuthenticatedPOSTFILERequest(token,adminPoint.UPLOAD_NOTES,{title, selectedCourse});
       if (res.status === 201) {
         alert('PDF uploaded successfully!');
       }

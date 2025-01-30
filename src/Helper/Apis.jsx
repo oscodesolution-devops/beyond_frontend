@@ -14,5 +14,6 @@ const ADMIN_URL = "http://localhost:4000/admin"
 export const adminPoint = {
     PURCHASE_DETAILS : ADMIN_URL + "/payments",
     CREATE_LIVE_CLASS : ADMIN_URL + "/createLiveClass",
+    GET_LIVE_CLASS : ADMIN_URL + "/getLiveClass",
     UPLOAD_NOTES : ADMIN_URL + "/uploadNotes",
 }
