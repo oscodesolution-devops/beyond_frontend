@@ -69,7 +69,7 @@ console.log(navLink);
                     <li className="nav-item cursor-pointer" onClick={()=>handler("liveclass")}>
                         <a className="nav-link">
                             <i className="bi bi-chat"></i> Live Classes
-                            <span className="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
+                            {/* <span className="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span> */}
                         </a>
                     </li>
                     <li className="nav-item">
