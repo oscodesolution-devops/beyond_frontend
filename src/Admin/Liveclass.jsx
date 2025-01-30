@@ -1,15 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { makeUnauthenticatedGETRequest, makeLiveClassLinkRequest } from '../Helper/ServerHelper'
+import { endPoint, adminPoint } from '../Helper/Apis'
+
 
 const Liveclass = () => {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
   const [error, setError] = useState('');
+  const [course, setCourse] = useState([]);
+  const token = localStorage.getItem("token")
+  const getAllCourse = async () => {
+    try {
+      const response = await makeUnauthenticatedGETRequest(endPoint.ALLCOURSE_API);
+      if (response.status === 200) {
+        setCourse(response.data.course)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  // Sample course options
-  const courses = ['React', 'Node.js', 'Python', 'Java', 'Data Structures'];
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!title.trim() || !link.trim() || !selectedCourse) {
@@ -18,7 +30,10 @@ const Liveclass = () => {
     }
 
     try {
-      new URL(link);
+      const response = await makeLiveClassLinkRequest(token,adminPoint.CREATE_LIVE_CLASS,{ "title":title, "link":link ,"courseId":selectedCourse });
+      if (response.status === 201) {
+        alert("Submitted")
+      }
     } catch (err) {
       setError('Please enter a valid URL.');
       return;
@@ -32,6 +47,14 @@ const Liveclass = () => {
     setLink('');
     setSelectedCourse('');
   };
+  useEffect(() => {
+    getAllCourse();
+
+  }, [])
+  console.log("8888888888888888888888888888888", course);
+  console.log("title", title);
+  console.log("link", link);
+  console.log("selectedCourse", selectedCourse);
 
   return (
     <div className='container flex items-center justify-center h-screen w-full'>
@@ -76,9 +99,9 @@ const Liveclass = () => {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">Select a course</option>
-              {courses.map((course, index) => (
-                <option key={index} value={course}>
-                  {course}
+              {course.map((course) => (
+                <option key={course._id} value={course._id}>
+                  {course.title}
                 </option>
               ))}
             </select>
