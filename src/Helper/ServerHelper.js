@@ -104,20 +104,6 @@ export const makeAuthenticatedDELETERequest = async (token , route ) => {
   }
 }
 export const makeAuthenticatedPOSTFILERequest = async (token, route, body) => {
-  // form data debug ke liye
-  for (let pair of body.entries()) {
-    if (pair[1] instanceof File) {
-      const fileURL = URL.createObjectURL(pair[1]);
-      console.log(
-        `Key: ${pair[0]}, File Name: ${pair[1].name}, File URL: ${fileURL}`
-      );
-    } else {
-      console.log(`Key: ${pair[0]}, Value: ${pair[1]}`);
-    }
-  }
-
-  console.log("frontend me body", body);
-  
   try {
     const response = await fetch(route, {
       method: "POST",

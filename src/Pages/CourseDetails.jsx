@@ -17,7 +17,7 @@ const CourseDetails = () => {
     const [course, setCourse] = useState([])
     const storedValue = localStorage.getItem('isLogin');
     let token = localStorage.getItem('token');
-
+    
     const getAllCourse = async () => {
         try {
             const response = await makeUnauthenticatedGETRequest(endPoint.ALLCOURSE_API);
@@ -74,6 +74,7 @@ const CourseDetails = () => {
 
     }
     const paymentHandler = async (amount) => {
+        alert("payment ")
         const _Data = { amount: amount }
         axios.post("http://localhost:4000/order", _Data)
 
@@ -83,12 +84,17 @@ const CourseDetails = () => {
             .catch()
     }
     useEffect(() => {
+        if (localStorage.getItem('token')){
+            localStorage.setItem('isLogin',true);
+        }else{
+            navigate('/login');
+        }
         getCourse(id);
         getAllCourse();
     }, [id])
-    const loginPage = () => {
-        navigate('/login');
-    }
+    // const loginPage = () => {
+    //     navigate('/login');
+    // }
     return (
         <>
             <Navbar />
@@ -104,7 +110,7 @@ const CourseDetails = () => {
 
                     <div className="w-[90vw] xl:w-[400px] flex flex-row items-center justify-between pt-6">
                         <button onClick={() => { storedValue === 'true' ? paymentHandler(data.price) : loginPage() }} className='xl:py-[15px] xl:px-[48px] px-[30px] py-[10px] rounded-md bg-theme-200 text-white'>Buy Courses</button>
-                        <button className='xl:py-[15px] xl:px-[48px] px-[30px] py-[10px]  rounded-md text-theme-200 border-2 border-theme-200'>Buy Courses</button>
+                        <button className='xl:py-[15px] xl:px-[48px] px-[30px] py-[10px]  rounded-md text-theme-200 border-2 border-theme-200'>View</button>
                     </div>
                 </div>
                 <div className=" w-[100%]">

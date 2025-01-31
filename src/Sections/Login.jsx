@@ -31,6 +31,7 @@ const Login = () => {
 
       if(response.status === 201){
         toast.success("Successfully Login");
+        localStorage.setItem('isLogin',true);
         navigate('/')
       }
       else{

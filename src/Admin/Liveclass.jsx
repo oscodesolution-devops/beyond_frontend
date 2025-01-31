@@ -28,7 +28,6 @@ const Liveclass = () => {
   const getAllLiveClasses = async () => {
     try {
       const response = await makeAuthenticatedGETRequest(token,adminPoint.GET_LIVE_CLASS);
-      console.log("fucking reponse",response);
       if (response.status === 200) {
         setLiveClasses(response.data.Links);
       }

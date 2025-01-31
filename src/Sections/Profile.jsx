@@ -50,7 +50,7 @@ const Profile = () => {
 
 
   useEffect(() => {
-
+    localStorage.setItem('isLogin',true);
     userDataGet().catch((error) => {
       console.error('Error in getting data:', error);
       // You can add additional error handling here if needed
