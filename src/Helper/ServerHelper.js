@@ -103,25 +103,35 @@ export const makeAuthenticatedDELETERequest = async (token , route ) => {
     console.error(`error in fetch api `, error);
   }
 }
-export const makeAuthenticatedPOSTFILERequest = async (token , route, body ) => {
-  // for (let pair of body.entries()) {
-  //       console.log(pair[0], pair[1]);
-  //   }
-  console.log("fontend me body",body)
+export const makeAuthenticatedPOSTFILERequest = async (token, route, body) => {
+  // form data debug ke liye
+  for (let pair of body.entries()) {
+    if (pair[1] instanceof File) {
+      const fileURL = URL.createObjectURL(pair[1]);
+      console.log(
+        `Key: ${pair[0]}, File Name: ${pair[1].name}, File URL: ${fileURL}`
+      );
+    } else {
+      console.log(`Key: ${pair[0]}, Value: ${pair[1]}`);
+    }
+  }
+
+  console.log("frontend me body", body);
+  
   try {
     const response = await fetch(route, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
         Authorization: `bearer ${token}`,
       },
-      body: JSON.stringify(body),
+      body: body, // FormData directly pass kar rahe hain
     });
+
     const formattedResponse = await response.json();
     const status = response.status;
-    const data = {data:formattedResponse,status:status}
+    const data = { data: formattedResponse, status: status };
     return data;
   } catch (error) {
     console.error(`error in fetch api `, error);
   }
-}
+};
