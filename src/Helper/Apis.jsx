@@ -6,7 +6,8 @@ export const  endPoint =  {
     GET_ALL_USER : BASE_URL + "/user",
     GET_ALL_USERS : BASE_URL + "/getuser",
     PURCHASES : BASE_URL + "/payment",
-    ALL_PURCHASES : BASE_URL + "/purchase"
+    ALL_PURCHASES : BASE_URL + "/purchase",
+    GET_LIVE_CLASS : BASE_URL + "/getLiveClass",
 }
 
 const ADMIN_URL = "http://localhost:4000/admin"

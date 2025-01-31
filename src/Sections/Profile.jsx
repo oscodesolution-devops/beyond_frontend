@@ -71,7 +71,7 @@ const Profile = () => {
             <div className="container-fluid ">
               <div>
                 <ul className="navbar-nav">
-                  <div className="cursor-pointer text-[#fff]  font-sans font-bold xl:text-[30px] text-[25px] px-4 py-1 flex flex-wrap items-center gap-6">
+                  <div className="cursor-pointer text-[#fff]  font-sans font-bold xl:text-[25px] text-[25px] px-4 py-1 flex flex-wrap items-center gap-2 ">
                     <span className="text-black ">Welcome</span>
                     <span className="text-theme-200 ">{userData?.name} </span>
                   </div>
