@@ -40,16 +40,16 @@ const NotesUpload = () => {
       return;
     }
 
-    // const formData = new FormData();
-    // formData.append('pdfFile', file);
-    // formData.append('title', "Xml notes");
-    // formData.append('course', "App development");
+    const formData = new FormData();
+    formData.append('pdfFile', file);
+    formData.append('title', title);
+    formData.append('course', selectedCourse);
   //   for (let pair of formData.entries()) {
   //     console.log(pair[0], pair[1]);
   // }
   
     try {
-      const res = await makeAuthenticatedPOSTFILERequest(token,adminPoint.UPLOAD_NOTES,{title, selectedCourse});
+      const res = await makeAuthenticatedPOSTFILERequest(token,adminPoint.UPLOAD_NOTES,formData);
       if (res.status === 201) {
         alert('PDF uploaded successfully!');
       }
