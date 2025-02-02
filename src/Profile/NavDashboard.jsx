@@ -1,7 +1,5 @@
 
 const NavDashboard = ({ course , data }) => {
-    
-
   return (
       <>
      <div className="h-screen flex-grow-1 overflow-y-lg-auto">
@@ -60,7 +58,7 @@ const NavDashboard = ({ course , data }) => {
                                 <div className="row">
                                     <div className="col">
                                         <span className="h6 font-semibold text-muted text-sm d-block mb-2">Purchase History</span>
-                                        <span className="h3 font-bold mb-0"></span>
+                                        <span className="h3 font-bold mb-0">null</span>
                                     </div>
                                     <div className="col-auto">
                                         <div className="icon icon-shape bg-info text-white text-lg rounded-circle">

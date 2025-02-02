@@ -78,7 +78,7 @@ const CourseDetails = () => {
         const userdata = localStorage.getItem('token')
         const _Data = { amount: amount, courseId: data._id , token:userdata }
 
-        console.log('frontend data', _Data)
+        // console.log('frontend data', _Data)
         axios.post("http://localhost:4000/api/auth/order",{ _Data})
 
             .then(res => {
