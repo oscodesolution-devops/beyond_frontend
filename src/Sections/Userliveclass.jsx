@@ -19,16 +19,7 @@ const Userliveclass = () => {
         } catch (error) {console.error("Error fetching data:", error);}
     };
     
-    // useEffect(() => {
-    //     fetchLiveSession();
-    // }, []);
     useEffect(() => {
-        // const fetchedClasses = [
-        //     { id: 1, title: 'React Basics', link: 'https://example.com/react', course: 'React' },
-        //     { id: 2, title: 'Node.js Crash Course', link: 'https://example.com/nodejs', course: 'Node.js' },
-        //     { id: 3, title: 'Python for Beginners', link: 'https://example.com/python', course: 'Python' },
-        // ];
-        // setLiveClasses(fetchedClasses);
         fetchLiveSession();
     }, []);
 

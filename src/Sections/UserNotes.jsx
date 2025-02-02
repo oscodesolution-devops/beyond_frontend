@@ -1,22 +1,32 @@
 import { useState, useEffect } from 'react';
-
+import axios from 'axios';
 const UserNotes = () => {
-    const [notes, setNotes] = useState([]);
+    const [UserNotes, setUserNotes] = useState([]);
 
+    const fetchUsernotes = async () => {
+        try {
+            const _Data = {token:localStorage.getItem('token')};
+            if (!_Data) {
+                console.error("No token found");
+                return;
+            }
+            // const res = await makeAuthenticatedGETRequest(_Data, endPoint.GET_LIVE_SESSION_OF_STUDENT);
+            const res = await  axios.post("http://localhost:4000/api/auth/getNotesofjoinedcourse", {_Data})
+            if(res.status === 200) {
+                setUserNotes(res?.data);
+            }
+        } catch (error) {console.error("Error fetching data:", error);}
+    };
+    
     useEffect(() => {
-        // Simulated data (Replace with actual API call)
-        const fetchedNotes = [
-            { id: 1, title: 'React Basics', link: 'https://example.com/react-basics.pdf', course: 'React' },
-            { id: 2, title: 'Node.js Guide', link: 'https://example.com/nodejs-guide.pdf', course: 'Node.js' },
-            { id: 3, title: 'Python Essentials', link: 'https://example.com/python-essentials.pdf', course: 'Python' },
-        ];
-        setNotes(fetchedNotes);
+        fetchUsernotes();
     }, []);
+    console.log('this is the users notes',UserNotes)
 
     return (
         <div className="container mx-auto p-6">
             <h2 className="text-2xl font-bold text-center mb-6">Course Notes</h2>
-            {notes.length === 0 ? (
+            {/* {notes.length === 0 ? (
                 <p className="text-center text-gray-600">No notes available.</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -42,7 +52,7 @@ const UserNotes = () => {
                         );
                     })}
                 </div>
-            )}
+            )} */}
         </div>
     );
 };
