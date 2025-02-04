@@ -26,22 +26,22 @@ const UserNotes = () => {
     return (
         <div className="container mx-auto p-6">
             <h2 className="text-2xl font-bold text-center mb-6">Course Notes</h2>
-            {/* {notes.length === 0 ? (
+            {UserNotes?.notes?.length === 0 ? (
                 <p className="text-center text-gray-600">No notes available.</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {notes.map((note) => {
+                    {UserNotes?.notes?.map((note) => {
                         // Extract the filename from the link
-                        const fileName = note.link.split('/').pop();
+                        // const fileName = note.link.split('/').pop();
 
                         return (
-                            <div key={note.id} className="bg-white p-4 rounded-lg shadow-md">
+                            <div key={note._id} className="bg-white p-4 rounded-lg shadow-md">
                                 <h3 className="text-lg font-semibold">{note.title}</h3>
-                                <p className="text-sm text-gray-600">Course: {note.course}</p>
-                                <p className="text-sm text-gray-800 mt-2">File: {fileName}</p>
+                                <p className="text-sm text-gray-600">Course: {note.courseId.title}</p>
+                                {/* <p className="text-sm text-gray-800 mt-2">File: {""}</p> */}
                                 <div className="mt-2">
                                     <a
-                                        href={note.link}
+                                        href={note.contentUrl}
                                         download
                                         className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
                                     >
@@ -52,7 +52,7 @@ const UserNotes = () => {
                         );
                     })}
                 </div>
-            )} */}
+            )}
         </div>
     );
 };
