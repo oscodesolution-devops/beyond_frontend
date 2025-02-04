@@ -3,7 +3,7 @@ import axios from "axios"
 import {toast} from "react-toastify"
 import { MdOutlineRemoveCircle } from "react-icons/md";
 import { IoIosAddCircle } from "react-icons/io";
-const course = () => {
+const course = ({titlea}) => {
 
   const token = localStorage.getItem("token")
   const [file, setFile] = useState(null);
@@ -13,6 +13,7 @@ const course = () => {
   const[content,setContent] = useState('')
   const[duration,setDuration] = useState('')
   const[meet,setMeet] = useState('')
+
  
     const [inputFields, setInputFields] = useState([{ value: '' }]);
     const [week, setWeek] = useState([{ value: '' }]);
@@ -105,12 +106,19 @@ const course = () => {
   }
   return (
      <>
- <div className="w-full h-[100vh] overflow-y-scroll">
-     <h2 className="text-center text-blue-400 font-bold pt-12 text-2xl uppercase mb-10">Add  new Course</h2>
+ <div className="w-full h-[100vh] overflow-y-scroll  ">
+ <button 
+  className="bg-red-500 text-white border border-black cursor-pointer relative left-[200px] py-2 px-2 translate-y-10 z-50" 
+  onClick={() => alert("JJJ")}
+>
+  X
+</button>
+
+     <h2 className="text-center text-blue-400 font-bold pt-12 text-2xl uppercase mb-10">{titlea=="Update Course"?"Update Course":"Add new Course"}</h2>
      <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
        <form onSubmit={handleSubmit}>
          <div className="mb-5">
-           <label htmlFor="name" className="block mb-2 font-bold text-gray-600">Course Thumbnail</label>
+           <label htmlFor="name" className="block mb-2 font-bold text-gray-600" >Course Thumbnail</label>
            <input onChange={fileHandler} type="file" id="name" name="thumbnail" placeholder="Put in your Thumbnail."  className="border border-gray-300 shadow p-3 w-full rounded mb-" />
          </div>
          <div className="mb-5">
