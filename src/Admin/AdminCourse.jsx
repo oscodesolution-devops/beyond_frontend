@@ -107,14 +107,9 @@ const course = ({titlea}) => {
   return (
      <>
  <div className="w-full h-[100vh] overflow-y-scroll  ">
- <button 
-  className="bg-red-500 text-white border border-black cursor-pointer relative left-[200px] py-2 px-2 translate-y-10 z-50" 
-  onClick={() => alert("JJJ")}
->
-  X
-</button>
 
-     <h2 className="text-center text-blue-400 font-bold pt-12 text-2xl uppercase mb-10">{titlea=="Update Course"?"Update Course":"Add new Course"}</h2>
+
+     <h2 className="text-center text-blue-400 font-bold pt-12 text-2xl uppercase mb-10">Add new Course</h2>
      <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
        <form onSubmit={handleSubmit}>
          <div className="mb-5">

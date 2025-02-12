@@ -8,14 +8,18 @@ import { makeAuthenticatedDELETERequest, makeUnauthenticatedGETRequest } from '.
 import { endPoint } from '../Helper/Apis'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
+import UpdateCourse from './UpdateCourse';
 const AllCourses = () => {
     const navigate = useNavigate();
     const token = localStorage.getItem("token")
     const [data, setData] = useState([])
     const [navLink, setNavlink] = useState("dashboard");
+    const [itemdata,setItmeData]=useState()
 
-
-    const handler = (section) => {
+    const handler = (section,item) => {
+        console.log("hello sir how are you",item)
+        setItmeData(item)
+        console.log("SSSSSSSSSSSSSSSSS:",section)
         setNavlink(section);
     }
 
@@ -47,7 +51,7 @@ const AllCourses = () => {
     }, [])
     return (
         <>
-            {navLink=="account"?(<AdminCourse titlea={"Update Course"} setNavlink={setNavlink}/>):
+            {navLink=="update"?(<UpdateCourse itemdata={itemdata}/>):
             <div className="w-screen h-auto px-[80px] py-[40px]">
                 <p className=" text-black  sm:text-[40px] xl:text-[64px] text-left pb-[40px] " >Course</p>
                 <div className="w-[100%] gap-y-[40px] xl:gap-y-[100px] m-0 p-0 gap-4 xl:gap-10 grid grid-flow-row sm:grid-cols-2 grid-cols-1 xl:grid-cols-4">
@@ -88,7 +92,7 @@ const AllCourses = () => {
                                                     <Link to={`/courses/${item._id}`} >View</Link>
                                                 </a>
                                                 <a className="font-semibold text-sm inline-flex items-center justify-center px-3 py-1.5 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-green-700 focus:outline-none focus-visible:ring-2 hover:bg-indigo-600 text-white">
-                                                    <button onClick={() => handler("account")}>Edit</button>
+                                                    <button onClick={() => handler("update",item)}>Edit</button>
                                                 </a>
                                             </div>
                                             <div>
@@ -104,7 +108,7 @@ const AllCourses = () => {
                 </div>
             </div>
          
-            }
+            } 
         </>
     )
 }
