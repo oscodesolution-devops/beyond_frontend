@@ -8,7 +8,7 @@ import NavDashboard from '../Profile/NavDashboard';
 import NavCourse from '../Profile/NavCourse';
 import Account from '../Pages/Account';
 import Userliveclass from './Userliveclass';
-import UserNotes from './userNotes';
+import UserNotes from './UserNotes';
 
 const Profile = () => {
   const navigate = useNavigate();
